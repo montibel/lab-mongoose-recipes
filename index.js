@@ -17,10 +17,16 @@ mongoose
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
-    return Recipe.create(data)
+    return Recipe.create(data);
     })
    .then(result => {
-      console.log(result)
+      console.log(result);
+  })
+  // Iteration 4
+  .then(() => {
+    console.log("modified duration");
+    return Recipe.findOneAndUpdate({title: "Rigatoni alla Genovese"}, {duration: 100});
+
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
