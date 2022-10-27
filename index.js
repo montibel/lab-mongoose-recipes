@@ -24,10 +24,19 @@ mongoose
   })
   // Iteration 4
   .then(() => {
-    console.log("modified duration");
     return Recipe.findOneAndUpdate({title: "Rigatoni alla Genovese"}, {duration: 100});
-
   })
+  .then(result => {
+    console.log("Modified duration");
+})
+
+// Iteration 5
+  .then(() => {
+    return Recipe.deleteOne({title: "Carrot Cake"});
+  })
+  .then(() => {
+    console.log("Carrot Cake has been deleted");
+})
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
