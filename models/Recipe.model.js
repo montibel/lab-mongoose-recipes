@@ -16,30 +16,29 @@ const recipeSchema = new Schema({
     type: [String]
   },
   cuisine: {
-    Type: String
+    type: String,
+    required: true
   },
   dishType: {
-    Type: String 
+    type: String,
+    enum: ["breakfast", "main_course", "soup", "snack", "drink", "dessert",  "other"]
   },
   image: {
-  Type: String,
+  type: String,
   default: "https://images.media-allrecipes.com/images/75131.jpg"
   },
   duration: {
-    Type: Number,
+    type: Number,
     min: 0
   },
   creator: {
     type: String
   },
-  created: {
+  created:{
     type: Date,
-    default: Today
-  }
+    default: Date.now 
+  },
   
-  
-
-
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
